@@ -1,0 +1,59 @@
+
+
+
+<div class="container">
+  <div class="row">
+  <div class="col-md-2">col-sm-2</div>
+  <div class="col-md-8">
+    <h1>Off Meeting</h1>
+    <div class="off_meeting_form " >
+      <p id="notice"><%= notice %></p>
+      <div class="off_metting_show">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th colspan="2"><%= @off_meeting.summary %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>開催日時</strong></td>
+              <td><%= @off_meeting.day %></td>
+            </tr>
+            <tr>
+              <td><strong>開催場所</strong></td>
+              <td><%= @off_meeting.address %></td>
+            </tr>
+            <tr>
+              <td><strong>レベル</strong></td>
+              <td><%= @off_meeting.level %></td>
+            </tr>
+            <tr>
+              <td><strong>詳細情報</strong></td>
+              <td><%= simple_format(@off_meeting.detail) %></td>
+            </tr>
+            <tr>
+              <td><strong>参加者</strong></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        <% if user_signed_in? %>
+          <% if @entry.nil? %>
+            <%= form_tag("/off_meetings/#{@off_meeting.id}/entries", method: "post") do %>
+              <%= submit_tag("参加する") %>
+            <% end %>
+          <% else %>
+            <%= form_tag("/off_meetings/#{@off_meeting.id}/entries/#{@entry.id}", method: "delete") do %>
+              <%= submit_tag("参加を取り消す") %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+      <%= link_to 'Edit', edit_off_meeting_path(@off_meeting) %> |
+      <%= link_to 'Back', off_meetings_path %>
+    </div>
+  </div>
+  <div class="col-md-2">col-sm-2</div>
+  </div>
+</div>

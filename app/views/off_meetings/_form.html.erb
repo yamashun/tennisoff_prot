@@ -1,0 +1,41 @@
+<div class="off_meeting_form" >
+<%= form_for(@off_meeting) do |f| %>
+  <% if @off_meeting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@off_meeting.errors.count, "error") %> prohibited this off_meeting from being saved:</h2>
+
+      <ul>
+      <% @off_meeting.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <div class="field">
+      <%= f.label :summary %><br>
+      <%= f.text_field :summary, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :day %><br>
+      <%= f.date_select :day, class: "form-control"  %>
+    </div>
+    <div class="field">
+      <%= f.label :address %><br>
+      <%= f.text_field :address, class: "form-control"  %>
+    </div>
+    <div class="field">
+      <%= f.label :level %><br>
+      <%= f.text_field :level, class: "form-control"  %>
+    </div>
+    <div class="field">
+      <%= f.label :detail %><br>
+      <%= f.text_area :detail, class: "form-control", rows: "10" %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </div>
+<% end %>
+</div>
