@@ -50,3 +50,5 @@ gem 'devise'
 gem 'pry-rails'
 
 gem 'paperclip'
+
+gem 'ransack'

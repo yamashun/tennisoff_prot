@@ -1,18 +1,24 @@
-<p id="notice"><%= notice %></p>
-
-
-
-<h1>XXXXXX</h1>
-
-
-<div class="container">
+  <div class="container">
   <div class="row">
     <div class="col-md-2">col-sm-2</div>
-    
     <div class="col-md-8">
-      <%= image_tag 'nishikori01.jpg' %>
-      <div class="panel panel-default">
-        <div class="panel-heading">Panel heading</div>
+      <h1>検索画面</h1>
+        <%= search_form_for(@search, url: off_meetings_search_path) do |f| %>
+          <div class="form-group">
+            <%= f.label :address, 'エリア' %>
+            <%= f.text_field :address_cont %>
+          </div>
+          <div class="form-group">
+            <%= f.label :day, '開催日時' %>
+            <%= f.date_select :day_gt %>
+            <%= f.date_select :day_lt %>
+          </div>
+          <div>
+            <%= f.submit '検索する' %>
+          </div>
+        <% end %>
+
+
         <table class="table">
           <thead>
             <tr>
@@ -37,13 +43,7 @@
           </tbody>
         </table>
       </div>
-      <%= link_to 'New Off meeting', new_off_meeting_path %>
     </div>
     <div class="col-md-2">col-sm-2</div>
   </div>
 </div>
-
-
-<br>
-
-

@@ -66,6 +66,11 @@ class OffMeetingsController < ApplicationController
     end
   end
 
+  def search
+    @search = OffMeeting.search(params[:q])
+    @off_meetings = @search.result
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_off_meeting
@@ -74,6 +79,6 @@ class OffMeetingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def off_meeting_params
-      params.require(:off_meeting).permit(:day, :address, :level, :detail, :summary).merge(user_id: current_user.id)
+      params.require(:off_meeting).permit(:day, :address, :level, :detail, :summary, :num_of_persons).merge(user_id: current_user.id)
     end
 end
