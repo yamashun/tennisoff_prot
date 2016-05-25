@@ -10,8 +10,8 @@
           </div>
           <div class="form-group">
             <%= f.label :day, '開催日時' %>
-            <%= f.date_select :day_gt %>
-            <%= f.date_select :day_lt %>
+            <%= f.text_field :day_gt, class: 'datepicker' %>
+            <%= f.text_field :day_lt, class: 'datepicker' %>
           </div>
           <div>
             <%= f.submit '検索する' %>
