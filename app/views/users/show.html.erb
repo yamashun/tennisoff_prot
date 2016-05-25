@@ -1,18 +1,16 @@
 <div class="container">
   <div class="row">
   <div class="col-lg-10 user-form">
-    
     <div class="user-upper-content">
       <h1>profile</h1>
       <div class="row">
         <div class="col-md-5">
-          <div class="profile_image">
-          </div>
+          <div class="profile_image" style="background-image: url(<%= @user.avatar.url(:medium) %>);"></div>
         </div>
         <div class="col-md-7">
           <div class="profile">
             <div class="content_1">
-            Shunsuke / 千葉
+            <%= @user.nickname %> / <%= @user.area %>
             </div>
           <div class="content_2 clearfix">
             <div class="left_content_2">
@@ -21,11 +19,13 @@
             <div class="middle_content_2">
             </div>
             <div class="right_content_2">
+
             </div>
           </div>
           <div class="profile_line">
           </div>
             <div class="content_3">
+              <%= @user.detail %>
             </div>
           </div>
         </div>

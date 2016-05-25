@@ -2,10 +2,15 @@
   <div class="row">
   <div class="col-lg-10">
     <div class="user-edit-form">
-      <h1>プロフィール編集</h1>
         <div class="row form">
           <div class="col-lg-12">
+
             <%= form_for current_user do |f| %>
+              <h2>画像アップロード</h2>
+              <div class="form-group file">
+                <%= f.file_field :avatar, class: "form-control floating-label", placeholder: "画像アップロード" %>
+              </div>
+              <h2>登録情報</h2>
               <div class="form-group">
                 <%= f.label :email %>
                 <%= f.text_field :email, placeholder: "メールアドレス", class: "form-control" %>
