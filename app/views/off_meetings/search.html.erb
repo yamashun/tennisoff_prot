@@ -2,23 +2,44 @@
   <div class="row">
     <div class="col-md-2">col-sm-2</div>
     <div class="col-md-8">
+      <div class="search-area">
       <h1>検索画面</h1>
         <%= search_form_for(@search, url: off_meetings_search_path) do |f| %>
-          <div class="form-group">
-            <%= f.label :address, 'エリア' %>
-            <%= f.text_field :address_cont %>
+          <div class="search-items-area">
+            <div class="form-group">
+              <div class="search-label">
+                <%= f.label :summary, 'タイトル', class: "seach-label" %>
+              </div>
+              <div class="search-item">
+                <%= f.text_field :summary_cont %>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="search-label">
+                <%= f.label :address, 'エリア' %>
+              </div>
+              <div class="search-item">
+                <%= f.text_field :address_cont %>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="search-label">
+                <%= f.label :day, '開催日時', class: "seach-label" %>
+              </div>
+              <div class="search-item">
+                <%= f.text_field :day_gt, class: 'datepicker' %> 〜 
+                <%= f.text_field :day_lt, class: 'datepicker' %>
+              </div>
+            </div>
           </div>
-          <div class="form-group">
-            <%= f.label :day, '開催日時' %>
-            <%= f.text_field :day_gt, class: 'datepicker' %>
-            <%= f.text_field :day_lt, class: 'datepicker' %>
-          </div>
-          <div>
-            <%= f.submit '検索する' %>
+          <div class="search-button-area">
+            <div id="search-button">
+              <%= f.submit '検索する', class: "btn btn-primary" %>
+            </div>
           </div>
         <% end %>
-
-
+      </div>
+      <div class="search-result-area">
         <table class="table">
           <thead>
             <tr>
@@ -42,6 +63,7 @@
             <% end %>
           </tbody>
         </table>
+      </div>
       </div>
     </div>
     <div class="col-md-2">col-sm-2</div>

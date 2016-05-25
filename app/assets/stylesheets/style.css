@@ -20,15 +20,25 @@ body {
   margin: 5px;
 }
 
+.user-downleft-content h2 {
+  text-align: center;
+}
+
+
 .user-downright-content{
   height: 300px;
   background-color: MistyRose;
   margin: 5px;
 }
 
+.user-downright-content h2 {
+  text-align: center;
+}
+
 .user-form h1 {
   text-align: center;
 }
+
 
 .profile_line {
   margin: 5px 0 0 -90px;
@@ -104,6 +114,45 @@ body {
 
 .user-edit-form textarea{
   height: 150px;
+}
+
+.search-area {
+  margin: 0 auto 15px;
+  height: 300px;
+  width: 600px;
+  background-color: white;
+  padding: 15px;
+  box-shadow:3px 3px;
+  border: medium solid SkyBlue;
+}
+
+.search-items-area {
+  height: 150px;
+  width: 500px;
+  margin: 0 auto;
+}
+
+.search-area h1 {
+  text-align: center;
+}
+
+.search-label {
+  width: 100px;
+  float: left;
+}
+
+.search-item {
+  float: left;
+}
+
+#search-button {
+  text-align: center;
+}
+
+.search-result-area {
+  background-color: white;
+  box-shadow:3px 3px;
+  border: medium solid SkyBlue;
 }
 
 

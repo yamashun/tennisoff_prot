@@ -1,7 +1,14 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(current_user.id)
-    @off_meetings = current_user.off_meetings
+    @hold_off_meetings = current_user.off_meetings
+    entries = current_user.entries
+    @entry_off_meetings = []
+
+    entries.each do |entry|
+      @entry_off_meetings << entry.off_meeting
+    end
+
   end
 
   def edit
@@ -10,7 +17,8 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user.update(update_params)
-    @off_meetings = current_user.off_meetings
+    @hold_off_meetings = current_user.off_meetings
+    # @entry_off_meetings = current_user.entries.off_meeting
     redirect_to action: :show
   end
 

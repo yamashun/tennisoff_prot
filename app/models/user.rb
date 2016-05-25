@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, content_type: ["image/jpg","image/jpeg","image/png"]
   has_many :off_meetings
   has_many :entries
+
 end

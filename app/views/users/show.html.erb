@@ -34,11 +34,11 @@
     <div class="row">
       <div class="col-sm-6">
         <div class="user-downleft-content">
-          <h1>xxさんが開催中のオフ会</h1>
+          <h2>開催中のオフ会</h2>
           <p>
-          <% unless @off_meetings.blank? %>
+          <% unless @hold_off_meetings.blank? %>
             <ul>
-              <% @off_meetings.each do |off_meeting| %>
+              <% @hold_off_meetings.each do |off_meeting| %>
                 <li><%= link_to "#{off_meeting.summary}", off_meeting_path(off_meeting) %> | <%= off_meeting.day %></li>
               <% end %>
             </ul>
@@ -50,7 +50,18 @@
       </div>
       <div class="col-sm-6">
         <div class="user-downright-content">
-          <h1>xxさんが参加予定のオフ会</h1>
+          <h2>参加予定のオフ会</h2>
+          <p>
+          <% unless @entry_off_meetings.blank? %>
+            <ul>
+              <% @entry_off_meetings.each do |off_meeting| %>
+                <li><%= link_to "#{off_meeting.summary}", off_meeting_path(off_meeting) %> | <%= off_meeting.day %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <h2>参加のオフ会はありません</h2>
+          <% end %>
+          </p>
         </div>
       </div>
     </div>
