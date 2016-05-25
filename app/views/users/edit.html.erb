@@ -1,24 +1,37 @@
 <div class="container">
   <div class="row">
-  <div class="col-lg-10 user-form">
-    <div class="user-upper-content">
-      <h1>New Off Meeting</h1>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="user-downleft-content">
-          <h1>xxさんが開催中のオフ会</h1>
-          <p>
-            <ul>
-            </ul>
-          </p>
+  <div class="col-lg-10">
+    <div class="user-edit-form">
+      <h1>プロフィール編集</h1>
+        <div class="row form">
+          <div class="col-lg-12">
+            <%= form_for current_user do |f| %>
+              <div class="form-group">
+                <%= f.label :email %>
+                <%= f.text_field :email, placeholder: "メールアドレス", class: "form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :nickname %>
+                <%= f.text_field :nickname, placeholder: "ニックネーム", class: "form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :area %>
+                <%= f.text_field :area, placeholder: "地域", class: "form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :sex %>
+                <%= f.text_field :sex, placeholder: "性別", class: "form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :detail %>
+                <%= f.text_area :detail, placeholder: "自由記述欄", class: "form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.submit "送信", class: "btn btn-primary withripple" %>
+              </div>
+            <% end %>
+          </div>
         </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="user-downright-content">
-          <h1>xxさんが参加予定のオフ会</h1>
-        </div>
-      </div>
     </div>
   </div>
   <div class="col-lg-2">col-md-2</div>

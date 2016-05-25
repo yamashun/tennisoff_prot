@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :off_meetings do
     resources :entries, only: [:create, :destroy]
   end
-  resources :users, only: [:show, :edit]
+  resources :users, only: [:show, :edit, :update]
 end

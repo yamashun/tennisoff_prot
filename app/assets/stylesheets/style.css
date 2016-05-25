@@ -93,5 +93,16 @@ body {
   margin: 10px 10px 0 60px;
 }
 
+.user-edit-form {
+  height: auto;
+  width: 600px;
+  background-color: white;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.user-edit-form textarea{
+  height: 150px;
+}
 
 
