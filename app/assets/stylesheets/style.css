@@ -29,3 +29,69 @@ body {
 .user-form h1 {
   text-align: center;
 }
+
+.profile_line {
+  margin: 5px 0 0 -90px;
+  border-bottom: 2px solid red;
+  /*float: left;*/
+}
+
+.content_1 {
+  height: 45px;
+  width: 350px;
+  /*background-color: white;*/
+  margin: 10px 15px;
+  font-size: 30px;
+}
+
+.left_content_2 {
+  height: 35px;
+  width: 200px;
+  /*background-color: white;*/
+  float: left;
+  margin: 5px 5px 0 5px;
+  /*font-size: 20px;*/
+}
+
+.middle_content_2 {
+  height: 35px;
+  width: 100px;
+  /*background-color: white;*/
+  float: left;
+  margin: 5px 5px 0 5px;
+}
+
+.right_content_2 {
+    height: 35px;
+    width: 150px;
+    /*background-color: white;*/
+  float: left;
+  margin: 5px 5px 0 5px;
+}
+
+.content_2 {
+  font-size: 24px;
+}
+
+.content_3 {
+  height: 125px;
+  width: 460px;
+  background-color: white;
+  margin: 5px 10px;
+}
+
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.profile_image {
+  height: 230px;
+  width: 250px;
+  background-color: white;
+  margin: 10px 10px 0 60px;
+}
+
+
+
