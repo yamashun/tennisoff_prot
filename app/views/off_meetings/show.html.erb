@@ -38,7 +38,15 @@
             </tr>
             <tr>
               <td><strong>参加者</strong></td>
-              <td></td>
+              <td>
+                <% if @entries.present?%>
+                  <% @entries.each do |entry| %>
+                    <div class="entry-user-image" style="background-image: url(<%= entry.user.avatar.url(:thumb) %>);"></div>
+                  <% end %>
+                <% end %>
+
+
+              </td>
             </tr>
           </tbody>
         </table>

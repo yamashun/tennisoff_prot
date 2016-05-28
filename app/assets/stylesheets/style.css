@@ -157,3 +157,11 @@ body {
 }
 
 
+.entry-user-image {
+  height: 50px;
+  width: 50px;
+  margin: 0 5px;
+  display: inline-block;
+}
+
+
