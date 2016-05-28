@@ -1,5 +1,13 @@
 body {
   background-color: #f0f0f0;
+  margin-top: 70px;
+
+}
+
+.common-header {
+  width: 100%;
+  /*position: fixed;*/
+  /*padding: 0 0 100px 0;*/
 }
 
 .user-form  {
@@ -185,7 +193,23 @@ body {
 }
 
 .off-meeting-title-area-right {
+  font-size: 18px;
   text-align: right;
+  margin: 5px 10px 10px 0;
+}
+
+.off-meeting-title-area h1 {
+  padding: 5px 0 10px;
+  border-bottom: 2px solid Crimson;
+}
+
+.off_meeting_show {
+  background-color: White;
+  padding: 15px 15px;
+}
+
+.organizer-area {
+
 }
 
 

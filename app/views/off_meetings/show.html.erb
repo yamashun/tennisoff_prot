@@ -1,22 +1,18 @@
-
-
-
 <div class="container">
   <div class="row">
-  <div class="col-md-2">col-sm-2</div>
-  <div class="col-md-8">
+  <div class="col-md-9">
     <div class="off_meeting_form" >
       <p id="notice"><%= notice %></p>
-      <div class="off_metting_show">
       <div class="off-meeting-title-area">
         <h1>Off Meeting</h1>
         <div class="off-meeting-title-area-right">
           <% if user_signed_in? && @off_meeting.user == current_user %>
-            <%= link_to '編集する', edit_off_meeting_path(@off_meeting), class: 'btn btn-primary'%> |
+            <%= link_to '編集する', edit_off_meeting_path(@off_meeting) %> |
           <% end %>
-          <%= link_to 'Back', off_meetings_path %>
+          <%= link_to '戻る', off_meetings_path %>
         </div>
       </div>
+      <div class="off_meeting_show">
         <table class="table table-bordered table-striped">
           <thead>
             <tr>
@@ -89,10 +85,10 @@
     <div class="talk">
       
     </div>
-
-
-
   </div>
-  <div class="col-md-2">col-sm-2</div>
+  <div class="col-md-3">col-sm-2</div>
+    <div class="organizer-area">
+
+    </div>
   </div>
 </div>
