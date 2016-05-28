@@ -1,0 +1,9 @@
+<p>
+  <div class="user-off-meetings">
+    <ul>
+      <% off_meetings.each do |off_meeting| %>
+        <li><%= link_to "#{off_meeting.summary}", off_meeting_path(off_meeting) %> | <%= off_meeting.day %></li>
+      <% end %>
+    </ul>
+  </div>
+</p>

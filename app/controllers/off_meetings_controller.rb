@@ -13,7 +13,8 @@ class OffMeetingsController < ApplicationController
   def show
     # if user_signed_in?
     @entry = Entry.find_by(user_id: current_user.id, off_meeting_id: @off_meeting.id)
-    # binding.pry
+    @question = Question.new
+    @questions = @off_meeting.questions
     @entries = @off_meeting.entries
   end
 

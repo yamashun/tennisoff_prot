@@ -10,21 +10,26 @@ body {
   /*padding: 0 0 100px 0;*/
 }
 
-.user-form  {
-  height: 700px;
+.top-off-meetings {
+  padding: 15px;
   background-color: white;
+}
+
+.user-form  {
+  height: auto;
+  /*background-color: white;*/
   border-radius: 3px;
   box-shadow: 0 0 10px rgba($black,0.2);
 }
 
 .user-upper-content {
-  height: 300px;
-  background-color: Lavender;
+  height: 350px;
+  background-color: White;
 }
 
 .user-downleft-content{
   height: 300px;
-  background-color: MistyRose;
+  background-color: White;
   margin: 5px;
 }
 
@@ -32,10 +37,14 @@ body {
   text-align: center;
 }
 
+.user-off-meetings {
+  width: auto;
+}
+
 
 .user-downright-content{
   height: 300px;
-  background-color: MistyRose;
+  background-color: White;
   margin: 5px;
 }
 
@@ -47,13 +56,6 @@ body {
   text-align: center;
 }
 
-
-.profile_line {
-  margin: 5px 0 0 -90px;
-  border-bottom: 2px solid red;
-  /*float: left;*/
-}
-
 .content_1 {
   height: 45px;
   width: 350px;
@@ -62,55 +64,26 @@ body {
   font-size: 30px;
 }
 
-.left_content_2 {
-  height: 35px;
-  width: 200px;
-  /*background-color: white;*/
-  float: left;
-  margin: 5px 5px 0 5px;
-  /*font-size: 20px;*/
-}
-
-.middle_content_2 {
-  height: 35px;
-  width: 100px;
-  /*background-color: white;*/
-  float: left;
-  margin: 5px 5px 0 5px;
-}
-
-.right_content_2 {
-    height: 35px;
-    width: 150px;
-    /*background-color: white;*/
-  float: left;
-  margin: 5px 5px 0 5px;
-}
-
-.content_2 {
-  font-size: 24px;
-}
-
-.content_3 {
-  height: 125px;
-  width: 460px;
-  background-color: white;
-  margin: 5px 10px;
-  font-size: 18px;
-}
-
-.clearfix:after {
-  content: "";
-  clear: both;
-  display: block;
-}
 
 .profile_image {
   height: 230px;
   width: 250px;
   background-color: white;
   background-repeat: no-repeat;
-  margin: 10px 10px 0 60px;
+  margin: 0 10px 10px 60px;
+}
+
+.profile-bottom-content {
+  height: 180px;
+  width: 430px;
+}
+
+.profile-bottom-content .column-1 {
+  width: 110px;
+}
+
+.profile-bottom-content #textarea {
+  text-align: left;
 }
 
 .user-edit-form {
@@ -203,7 +176,7 @@ body {
   margin: 5px 10px 10px 0;
 }
 
-/*.off-meeting-title-area*/
+/*.off-meeting-title-area */
 h1 {
   padding: 0 0 10px;
   border-bottom: 2px solid Crimson;
@@ -219,6 +192,8 @@ h1 {
   margin-left: 15px;
   padding: 10px;
 }
+
+
 
 .organizer-area h3{
   text-align: center;
@@ -239,5 +214,31 @@ h1 {
 
 .organizer-area #textarea {
   text-align: left;
+}
+
+.question-entry-area {
+  background-color: White;
+  margin-top: 15px;
+  margin-left: 15px;
+  padding: 10px;
+}
+
+.disp-question {
+  background-color: White;
+  margin: 15px 0 0 5px;
+  border-bottom: 1px solid LightGrey;
+}
+
+.disp-question p {
+  font-size: 15px;
+}
+
+.talk-area {
+
+}
+
+.talk {
+  border-bottom: 2px solid LightGrey;
+
 }
 

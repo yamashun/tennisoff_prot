@@ -1,108 +1,126 @@
 <div class="container">
   <div class="row">
-  <div class="col-lg-8">
-    <div class="off_meeting_form" >
-      <p id="notice"><%= notice %></p>
-      <div class="off-meeting-title-area">
-        <h1>Off Meeting</h1>
-        <div class="off-meeting-title-area-right">
-          <% if user_signed_in? && @off_meeting.user == current_user %>
-            <%= link_to '編集する', edit_off_meeting_path(@off_meeting) %> |
-          <% end %>
-          <%= link_to '戻る', off_meetings_path %>
+    <div class="col-lg-8">
+      <div class="off_meeting_form" >
+        <p id="notice"><%= notice %></p>
+        <div class="off-meeting-title-area">
+          <h1>Off Meeting</h1>
+          <div class="off-meeting-title-area-right">
+            <% if user_signed_in? && @off_meeting.user == current_user %>
+              <%= link_to '編集する', edit_off_meeting_path(@off_meeting) %> |
+            <% end %>
+            <%= link_to '戻る', off_meetings_path %>
+          </div>
         </div>
-      </div>
-      <div class="off_meeting_show">
-        <table class="table table-bordered table-striped">
-          <thead>
-            <tr>
-              <th colspan="2"><%= @off_meeting.summary %></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>開催日時</strong></td>
-              <td><%= @off_meeting.day %></td>
-            </tr>
-            <tr>
-              <td><strong>開催場所</strong></td>
-              <td><%= @off_meeting.address %></td>
-            </tr>
-            <tr>
-              <td><strong>レベル</strong></td>
-              <td><%= @off_meeting.level %></td>
-            </tr>
-            <tr>
-              <td><strong>詳細情報</strong></td>
-              <td><%= simple_format(@off_meeting.detail) %></td>
-            </tr>
-            <tr>
-              <td><strong>定員</strong></td>
-              <td><%= @off_meeting.num_of_persons %></td>
-            </tr>
-            <tr>
-              <td><strong>主催者</strong></td>
-              <td>
-                <div class="entry-user-image" style="background-image: url(<%= @off_meeting.user.avatar.url(:thumb) %>);">
-                    <div class="entry-user-link">
-                      <a href="/users/<%= @off_meeting.user.id %>" ><span>image</span></a>
-                    </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td><strong>参加者</strong></td>
-              <td>
-                <% if @entries.present?%>
-                  <% @entries.each do |entry| %>
-                    <div class="entry-user-image" style="background-image: url(<%= entry.user.avatar.url(:thumb) %>);">
+        <div class="off_meeting_show">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th colspan="2"><%= @off_meeting.summary %></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>開催日時</strong></td>
+                <td><%= @off_meeting.day %></td>
+              </tr>
+              <tr>
+                <td><strong>開催場所</strong></td>
+                <td><%= @off_meeting.address %></td>
+              </tr>
+              <tr>
+                <td><strong>レベル</strong></td>
+                <td><%= @off_meeting.level %></td>
+              </tr>
+              <tr>
+                <td><strong>詳細情報</strong></td>
+                <td><%= simple_format(@off_meeting.detail) %></td>
+              </tr>
+              <tr>
+                <td><strong>定員</strong></td>
+                <td><%= @off_meeting.num_of_persons %></td>
+              </tr>
+              <tr>
+                <td><strong>主催者</strong></td>
+                <td>
+                  <div class="entry-user-image" style="background-image: url(<%= @off_meeting.user.avatar.url(:thumb) %>);">
                       <div class="entry-user-link">
-                        <a href="/users/<%= entry.user.id %>" ><span>image</span></a>
+                        <a href="/users/<%= @off_meeting.user.id %>" ><span>image</span></a>
                       </div>
-                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>参加者</strong></td>
+                <td>
+                  <% if @entries.present?%>
+                    <% @entries.each do |entry| %>
+                      <div class="entry-user-image" style="background-image: url(<%= entry.user.avatar.url(:thumb) %>);">
+                        <div class="entry-user-link">
+                          <a href="/users/<%= entry.user.id %>" ><span>image</span></a>
+                        </div>
+                      </div>
+                    <% end %>
                   <% end %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="entry_button">
+            <% if user_signed_in? && current_user != @off_meeting.user %>
+              <% if @entry.nil? %>
+                <%= form_tag("/off_meetings/#{@off_meeting.id}/entries", method: "post") do %>
+                  <%= submit_tag "参加する" , class: 'btn btn-primary' %>
                 <% end %>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="entry_button">
-          <% if user_signed_in? && current_user != @off_meeting.user %>
-            <% if @entry.nil? %>
-              <%= form_tag("/off_meetings/#{@off_meeting.id}/entries", method: "post") do %>
-                <%= submit_tag "参加する" , class: 'btn btn-primary' %>
-              <% end %>
-            <% else %>
-              <%= form_tag("/off_meetings/#{@off_meeting.id}/entries/#{@entry.id}", method: "delete") do %>
-                <%= submit_tag "参加を取り消す", class: 'btn btn-danger'  %>
+              <% else %>
+                <%= form_tag("/off_meetings/#{@off_meeting.id}/entries/#{@entry.id}", method: "delete") do %>
+                  <%= submit_tag "参加を取り消す", class: 'btn btn-danger'  %>
+                <% end %>
               <% end %>
             <% end %>
+          </div>
+        </div>
+        <h1>コメント欄</h1>
+        <div class="talk-area">
+          <% @questions.each do |question| %>
+            <div class="disp-question">
+              <p><%= question.question %></p>
+            </div>
           <% end %>
         </div>
       </div>
     </div>
-    <!-- ここから雑談を表示 -->
-    <div class="talk">
+    <div class="col-lg-4">
+      <div class="organizer-area">
+        <h1>主催者</h1>
+        <h3><%= link_to @off_meeting.user.nickname, user_path(@off_meeting.user) %>さん</3>
+        <div class="organizer-profile-image" style="background-image: url(<%= @off_meeting.user.avatar.url(:medium) %>);">
+        </div>
+        <table class="table">
+          <tr>
+            <td class="column-1"><strong>地域</strong></td>
+            <td><%= @off_meeting.user.area %></td>
+          </tr>
+          <tr>
+            <td class="column-1"><strong>コメント</strong></td>
+            <td id="textarea"><%= @off_meeting.user.detail %></td>
+          </tr>
+        </table>
+      </div>
+      <div class="question-entry-area">
+        <h1>質問する</h1>
+        <%= form_for [@off_meeting, @question] do |f| %>
+          <div class="form-group">
+            <div class="field">
+              <%= f.text_area :question, class: "form-control", rows: "8", placeholder: "オフ会に関する質問を記入してください。ここに書いた質問がコメント欄に表示されます。" %>
+            </div>
+            <div class="actions">
+              <%= f.submit %>
+            </div>
+          </div>
 
+        <% end %>
+      </div>
     </div>
-  </div>
-  <div class="col-lg-4">
-    <div class="organizer-area">
-      <h1>主催者</h1>
-      <h3><%= link_to @off_meeting.user.nickname, user_path(@off_meeting.user) %>さん</3>
-      <div class="organizer-profile-image" style="background-image: url(<%= @off_meeting.user.avatar.url(:medium) %>);"></div>
-      <table class="table">
-        <tr>
-          <td class="column-1"><strong>地域</strong></td>
-          <td><%= @off_meeting.user.area %></td>
-        </tr>
-        <tr>
-          <td class="column-1"><strong>コメント</strong></td>
-          <td id="textarea"><%= @off_meeting.user.detail %></td>
-        </tr>
-      </table>
-    </div>
-  </div>
-
   </div>
 </div>

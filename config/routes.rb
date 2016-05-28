@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'off_meetings/search' => 'off_meetings#search'
   resources :off_meetings do
     resources :entries, only: [:create, :destroy]
+    resources :questions, only: [:create, :update]
   end
   resources :users, only: [:show, :edit, :update]
+
 end

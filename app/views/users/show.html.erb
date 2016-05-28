@@ -1,76 +1,75 @@
 <div class="container">
   <div class="row">
-  <div class="col-lg-10 user-form">
-    <div class="user-upper-content">
-      <h1>profile</h1>
-      <div class="row">
-        <div class="col-md-5">
-          <div class="profile_image" style="background-image: url(<%= @user.avatar.url(:medium) %>);"></div>
+    <div class="col-lg-10 user-form">
+      <div class="user-upper-content col-md-12">
+        <% if user_signed_in? && current_user.id == @user.id %>
+          <h1>マイプロフィール（<%= link_to '編集', edit_user_path(current_user)%>）</h1>
+        <% else %>
+          <h1>プロフィール</h1>
+        <% end %>
+        <div class="row">
+          <div class="col-md-5">
+            <div class="profile_image" style="background-image: url(<%= @user.avatar.url(:medium) %>);"></div>
+          </div>
+          <div class="col-md-7">
+            <div class="profile">
+              <table class="table profile-bottom-content">
+                <tr>
+                  <td class="column-1"><strong>ニックネーム</strong></td>
+                  <td><%= @user.nickname %></td>
+                </tr>
+                <tr>
+                  <td class="column-1"><strong>地域</strong></td>
+                  <td><%= @user.area %></td>
+                </tr>
+                <tr>
+                  <td class="column-1"><strong>開催回数</strong></td>
+                  <td><%= @hold_off_meetings.length unless @hold_off_meetings.blank? %></td>
+                </tr>
+                <tr>
+                  <td class="column-1"><strong>参加回数</strong></td>
+                  <td><%= @entry_off_meetings.length unless @entry_off_meetings.blank? %></td>
+                </tr>
+                <tr>
+                  <td class="column-1"><strong>自己紹介</strong></td>
+                  <td id="textarea"><%= @user.detail %></td>
+                </tr>
+              </table>
+            </div>
+          </div>
         </div>
-        <div class="col-md-7">
-          <div class="profile">
-            <div class="content_1">
-            <%= @user.nickname %> / <%= @user.area %>
-            </div>
-          <div class="content_2 clearfix">
-            <div class="left_content_2">
-              テニス歴：６年
-            </div>
-            <div class="middle_content_2">
-            </div>
-            <div class="right_content_2">
-
+      </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="user-downleft-content">
+              <h1>開催中のオフ会</h1>
+              <% unless @hold_off_meetings.blank? %>
+                <%= render 'off_meetings/user_off_meetings', off_meetings: @hold_off_meetings %>
+              <% else %>
+                <p>開催中のオフ会はありません</p>
+              <% end %>
             </div>
           </div>
-          <div class="profile_line">
-          </div>
-            <div class="content_3">
-              <%= @user.detail %>
+          <div class="col-md-6">
+            <div class="user-downright-content">
+              <h1>参加予定のオフ会</h1>
+              <% unless @entry_off_meetings.blank? %>
+              <%= render 'off_meetings/user_off_meetings', off_meetings: @entry_off_meetings %>
+                <div class="user-off-meetings">
+              <% else %>
+                <p>参加のオフ会はありません</p>
+              <% end %>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="user-downleft-content">
-          <h2>開催中のオフ会</h2>
-          <p>
-          <% unless @hold_off_meetings.blank? %>
-            <ul>
-              <% @hold_off_meetings.each do |off_meeting| %>
-                <li><%= link_to "#{off_meeting.summary}", off_meeting_path(off_meeting) %> | <%= off_meeting.day %></li>
-              <% end %>
-            </ul>
-          <% else %>
-            <h2>開催中のオフ会はありません</h2>
-          <% end %>
-          </p>
+    <div class="col-lg-2">aaaa
+      <% if user_signed_in? && current_user.id == @user.id %>
+        <div class="profile_edit">
+          <%= link_to 'プロフィール編集', edit_user_path(current_user), {:class => 'btn btn-primary withripple' }%>
         </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="user-downright-content">
-          <h2>参加予定のオフ会</h2>
-          <p>
-          <% unless @entry_off_meetings.blank? %>
-            <ul>
-              <% @entry_off_meetings.each do |off_meeting| %>
-                <li><%= link_to "#{off_meeting.summary}", off_meeting_path(off_meeting) %> | <%= off_meeting.day %></li>
-              <% end %>
-            </ul>
-          <% else %>
-            <h2>参加のオフ会はありません</h2>
-          <% end %>
-          </p>
-        </div>
-      </div>
+      <% end %>
     </div>
-  </div>
-  <div class="col-lg-2">col-md-2</div>
   </div>
 </div>
-<% if current_user && current_user.id == @user.id %>
-  <div class="profile_edit">
-    <%= link_to 'プロフィール編集', edit_user_path(current_user), {:class => 'btn btn-primary withripple' }%>
-  </div>
-<% end %>

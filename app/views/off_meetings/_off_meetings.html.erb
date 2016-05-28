@@ -1,0 +1,21 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>概要</th>
+      <th>開催日</th>
+      <th>場所</th>
+      <th>レベル</th>
+      <!-- <th colspan="3"></th> -->
+    </tr>
+  </thead>
+  <tbody>
+    <% off_meetings.each do |off_meeting| %>
+      <tr>
+        <td><%= link_to off_meeting.summary, off_meeting_path(off_meeting) %></td>
+        <td><%= off_meeting.day %></td>
+        <td><%= off_meeting.address %></td>
+        <td><%= off_meeting.level %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>

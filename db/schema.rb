@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160525044229) do
+ActiveRecord::Schema.define(version: 20160528112547) do
 
   create_table "entries", force: :cascade do |t|
     t.integer  "off_meeting_id", limit: 4
@@ -30,6 +30,14 @@ ActiveRecord::Schema.define(version: 20160525044229) do
     t.string   "summary",        limit: 255
     t.integer  "num_of_persons", limit: 4
     t.integer  "user_id",        limit: 4
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.text     "question",       limit: 65535
+    t.integer  "user_id",        limit: 4
+    t.integer  "off_meeting_id", limit: 4
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "users", force: :cascade do |t|
