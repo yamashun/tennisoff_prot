@@ -125,14 +125,18 @@ body {
   height: 150px;
 }
 
+.search {
+  background-color: white;
+}
+
 .search-area {
   margin: 0 auto 15px;
   height: 300px;
   width: 600px;
   background-color: white;
   padding: 15px;
-  box-shadow:3px 3px;
-  border: medium solid SkyBlue;
+  /*box-shadow:3px 3px;*/
+  /*border: medium solid SkyBlue;*/
 }
 
 .search-items-area {
@@ -160,8 +164,9 @@ body {
 
 .search-result-area {
   background-color: white;
-  box-shadow:3px 3px;
-  border: medium solid SkyBlue;
+  padding: 5px 10px;
+  /*box-shadow:3px 3px;*/
+  /*border: medium solid SkyBlue;*/
 }
 
 
@@ -198,8 +203,9 @@ body {
   margin: 5px 10px 10px 0;
 }
 
-.off-meeting-title-area h1 {
-  padding: 5px 0 10px;
+/*.off-meeting-title-area*/
+h1 {
+  padding: 0 0 10px;
   border-bottom: 2px solid Crimson;
 }
 
@@ -209,8 +215,29 @@ body {
 }
 
 .organizer-area {
-
+  background-color: White;
+  margin-left: 15px;
+  padding: 10px;
 }
 
+.organizer-area h3{
+  text-align: center;
+  margin-bottom: 5px
+}
 
+.organizer-profile-image {
+  margin: 0 auto 10px;
+  height: 230px;
+  width: 250px;
+  background-color: white;
+  background-repeat: no-repeat;
+}
+
+.organizer-area .column-1 {
+  width: 90px;
+}
+
+.organizer-area #textarea {
+  text-align: left;
+}
 

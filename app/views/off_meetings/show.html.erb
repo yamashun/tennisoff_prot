@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-  <div class="col-md-9">
+  <div class="col-lg-8">
     <div class="off_meeting_form" >
       <p id="notice"><%= notice %></p>
       <div class="off-meeting-title-area">
@@ -83,12 +83,26 @@
     </div>
     <!-- ここから雑談を表示 -->
     <div class="talk">
-      
-    </div>
-  </div>
-  <div class="col-md-3">col-sm-2</div>
-    <div class="organizer-area">
 
     </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="organizer-area">
+      <h1>主催者</h1>
+      <h3><%= link_to @off_meeting.user.nickname, user_path(@off_meeting.user) %>さん</3>
+      <div class="organizer-profile-image" style="background-image: url(<%= @off_meeting.user.avatar.url(:medium) %>);"></div>
+      <table class="table">
+        <tr>
+          <td class="column-1"><strong>地域</strong></td>
+          <td><%= @off_meeting.user.area %></td>
+        </tr>
+        <tr>
+          <td class="column-1"><strong>コメント</strong></td>
+          <td id="textarea"><%= @off_meeting.user.detail %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
   </div>
 </div>
