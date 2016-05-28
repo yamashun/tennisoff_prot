@@ -13,11 +13,8 @@ class OffMeetingsController < ApplicationController
   def show
     # if user_signed_in?
     @entry = Entry.find_by(user_id: current_user.id, off_meeting_id: @off_meeting.id)
-    
-    @entries = @off_meeting.entries
-
-    # end
     # binding.pry
+    @entries = @off_meeting.entries
   end
 
   # GET /off_meetings/new
@@ -27,6 +24,11 @@ class OffMeetingsController < ApplicationController
 
   # GET /off_meetings/1/edit
   def edit
+    off_meeting = OffMeeting.find(params[:id])
+    unless current_user.id == off_meeting.user_id
+      redirect_to root_path
+      return
+    end
   end
 
   # POST /off_meetings

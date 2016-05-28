@@ -176,5 +176,17 @@ body {
   visibility: hidden;
 }
 
+.entry_button {
+  text-align: center;
+}
+
+.off-meeting-title-area {
+
+}
+
+.off-meeting-title-area-right {
+  text-align: right;
+}
+
 
 
