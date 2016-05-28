@@ -101,6 +101,7 @@ body {
   height: 230px;
   width: 250px;
   background-color: white;
+  background-repeat: no-repeat;
   margin: 10px 10px 0 60px;
 }
 
