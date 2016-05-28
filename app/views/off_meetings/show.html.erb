@@ -41,11 +41,13 @@
               <td>
                 <% if @entries.present?%>
                   <% @entries.each do |entry| %>
-                    <div class="entry-user-image" style="background-image: url(<%= entry.user.avatar.url(:thumb) %>);"></div>
+                    <div class="entry-user-image" style="background-image: url(<%= entry.user.avatar.url(:thumb) %>);">
+                      <div class="entry-user-link">
+                        <a href="/users/<%= entry.user.id %>" ><span>image</span></a>
+                      </div>
+                    </div>
                   <% end %>
                 <% end %>
-
-
               </td>
             </tr>
           </tbody>

@@ -164,4 +164,17 @@ body {
   display: inline-block;
 }
 
+.entry-user-link a{
+  display: block;
+  height: 50px;
+  width: 50px;
+  /*display: none;*/
+}
+
+.entry-user-link span {
+  text-decoration: none;
+  visibility: hidden;
+}
+
+
 

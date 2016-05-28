@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
     @hold_off_meetings = current_user.off_meetings
     entries = current_user.entries
     @entry_off_meetings = []
