@@ -82,10 +82,15 @@
         </div>
         <h1>コメント欄</h1>
         <div class="talk-area">
-          <% @questions.each do |question| %>
-            <div class="disp-question">
-              <p><%= question.question %></p>
-            </div>
+          <% unless @questions.empty? %>
+            <% @questions.each do |question| %>
+              <div class="disp-question">
+                <p><%= question.question %></p>
+                <a data-target="form-<%= question.id %>" class="modal-open" id="modal-test" question-id="<%= question.id %>">回答する</a>
+              </div>
+            <% end %>
+          <% else %>
+            質問がある場合は右の質問フォームからお願いします。
           <% end %>
         </div>
       </div>
@@ -124,3 +129,20 @@
     </div>
   </div>
 </div>
+
+<% @questions.each do |question| %>
+  <div id="form-<%= question.id %>" class="modal-content">
+      <%= form_tag("/off_meetings/#{@off_meeting.id}/questions/#{question.id}/answers", method: "post") do %>
+        <div class="form-group">
+            <%= label_tag(:answer, "回答") %>
+          <div class="field">
+            <%= text_area_tag :answer %>
+          </div>
+          <div class="actions">
+            <%= submit_tag("投稿する") %>
+          </div>
+        </div>
+      <% end %>
+      <p><a class="modal-close">閉じる</a></p>
+  </div>
+<% end %>

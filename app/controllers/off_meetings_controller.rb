@@ -15,6 +15,7 @@ class OffMeetingsController < ApplicationController
     @entry = Entry.find_by(user_id: current_user.id, off_meeting_id: @off_meeting.id)
     @question = Question.new
     @questions = @off_meeting.questions
+    # binding.pry
     @entries = @off_meeting.entries
   end
 
