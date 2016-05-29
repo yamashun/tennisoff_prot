@@ -55,3 +55,5 @@ gem 'pry-rails'
 gem 'paperclip'
 
 gem 'ransack'
+
+gem 'kaminari'

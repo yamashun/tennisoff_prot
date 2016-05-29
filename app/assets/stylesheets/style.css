@@ -258,6 +258,35 @@ h2 {
   padding: 15px 15px;
 }
 
+.off-meeting-table {
+  table-layout: fixed;
+  width: 650px;
+}
+
+.off-meeting-table #column1 {
+  width: 120px;
+}
+
+.off-meeting-table #column2 {
+  width: 530px;
+}
+/*
+.off-meeting-table tbody tr td:nth-child(1) {
+  width:100px;
+}*/
+/*
+.off-meeting-table td:nth-child(2) {
+  width:200px;
+}*/
+/*
+.off_meeting_show .column1 {
+  width: 90px;
+}*/
+/*
+.off_meeting_show .column2 {
+  width: 300px;
+}*/
+
 .organizer-area {
   background-color: White;
   margin-left: 15px;
@@ -359,8 +388,6 @@ h2 {
 
 }
 
-
-
 .modal-content {
     position:fixed;
     display:none;
@@ -406,4 +433,36 @@ h2 {
 .modal-close:hover {
     cursor:pointer;
     color:#f00;
+}
+
+
+.signup-area {
+  margin: 0 auto;
+  width: 420px;
+  background-color: White;
+  padding: 20px 30px;
+}
+
+.signup-area h2 {
+  border-bottom: 2px solid RoyalBlue;
+}
+
+.signup-area input   {
+  width: 350px;
+}
+
+
+.signin-area {
+  margin: 0 auto;
+  width: 420px;
+  background-color: White;
+  padding: 20px 30px;
+}
+
+.signin-area h2 {
+  border-bottom: 2px solid RoyalBlue;
+}
+
+.signin-area input   {
+  width: 350px;
 }

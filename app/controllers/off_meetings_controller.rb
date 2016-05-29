@@ -5,15 +5,16 @@ class OffMeetingsController < ApplicationController
   # GET /off_meetings
   # GET /off_meetings.json
   def index
-    @off_meetings = OffMeeting.all
+    @off_meetings = OffMeeting.all.order("updated_at DESC").page(params[:page]).per(5)
     @search = OffMeeting.search(params[:q])
   end
 
   # GET /off_meetings/1
   # GET /off_meetings/1.json
   def show
-    # if user_signed_in?
-    @entry = Entry.find_by(user_id: current_user.id, off_meeting_id: @off_meeting.id)
+    #参加、キャンセルボタンの制御のために取得。ユーザーログインしていない場合は検索しない
+    @entry = Entry.find_by(user_id: current_user.id, off_meeting_id: @off_meeting.id) if user_signed_in?
+
     @entries = @off_meeting.entries
 
     @question = Question.new
@@ -77,7 +78,7 @@ class OffMeetingsController < ApplicationController
 
   def search
     @search = OffMeeting.search(params[:q])
-    @off_meetings = @search.result
+    @off_meetings = @search.result.page(params[:page]).per(5)
   end
 
   private

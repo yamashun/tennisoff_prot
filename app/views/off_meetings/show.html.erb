@@ -13,16 +13,18 @@
           </div>
         </div>
         <div class="off_meeting_show">
-          <table class="table table-bordered table-striped">
+          <table class="table table-bordered table-striped off-meeting-table">
             <thead>
               <tr>
-                <th colspan="2"><%= @off_meeting.summary %></th>
+                <th id="column1"><strong>タイトル</strong></td>
+                <th id="column2"><%= @off_meeting.summary %></td>
+                <!-- <th colspan="2"><%= @off_meeting.summary %></th> -->
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>開催日時</strong></td>
-                <td><%= @off_meeting.day %></td>
+                <td id="column1"><strong>開催日時</strong></td>
+                <td id="column2"><%= @off_meeting.day %></td>
               </tr>
               <tr>
                 <td><strong>開催場所</strong></td>
