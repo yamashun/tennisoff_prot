@@ -85,8 +85,22 @@
           <% unless @questions.empty? %>
             <% @questions.each do |question| %>
               <div class="disp-question">
-                <p><%= question.question %></p>
-                <a data-target="form-<%= question.id %>" class="modal-open" id="modal-test" question-id="<%= question.id %>">回答する</a>
+                  <div class="disp-question-img" style="background-image: url(<%= question.user.avatar.url(:thumb) %>);">　</div>
+                  <div class="disp-question-line">　</div>
+                  <strong><%= question.question %></strong>
+                <% unless question.answers.empty? %>
+                  <% question.answers.each do |answer| %>
+                    <div class="disp-answer">
+                      <%= answer.answer %>
+                      <div class="disp-answer-line">　</div>
+                      <div class="disp-answer-img" style="background-image: url(<%= answer.user.avatar.url(:thumb) %>);">　</div>
+                    </div>
+                  <% end %>
+                <% end %>
+                <br>
+                <div class="answer-button">
+                  <a data-target="form-<%= question.id %>" class="modal-open" id="modal-test" question-id="<%= question.id %>">回答する</a>
+                </div>
               </div>
             <% end %>
           <% else %>
