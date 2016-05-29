@@ -10,9 +10,28 @@ body {
   /*padding: 0 0 100px 0;*/
 }
 
+.header-image-area {
+ background-color: white;
+ width: auto;
+ height: 250px;
+ text-align: center;
+ margin-bottom: 30px;
+ margin-top: -20px;
+}
+
+.header-image {
+  /*float:left;*/
+  text-align: center;
+  display: table-cell;
+}
+
 .top-off-meetings {
   padding: 15px;
   background-color: white;
+}
+
+.space {
+  margin: 20px 0;
 }
 
 .user-form  {
@@ -142,6 +161,54 @@ body {
   /*border: medium solid SkyBlue;*/
 }
 
+.top-search {
+  background-color: white;
+}
+
+.top-search-area {
+  margin: 0 auto 15px;
+  height: 400px;
+  width: auto;
+  background-color: white;
+  padding: 15px;
+  /*box-shadow:3px 3px;*/
+  /*border: medium solid SkyBlue;*/
+}
+
+.top-search-items-area {
+  height: 150px;
+  width: auto;
+  margin: 0 auto;
+}
+
+.top-search-area h1 {
+  text-align: center;
+}
+
+.top-search-label {
+  width: 90px;
+  float: left;
+}
+
+.top-search-item {
+  float: left;
+}
+
+#top-search-button {
+  text-align: center;
+}
+
+.top-search-result-area {
+  background-color: white;
+  padding: 5px 10px;
+  /*box-shadow:3px 3px;*/
+  /*border: medium solid SkyBlue;*/
+}
+
+.search-date {
+  margin-bottom: 10px;
+}
+
 
 .entry-user-image {
   height: 50px;
@@ -180,6 +247,10 @@ body {
 h1 {
   padding: 0 0 10px;
   border-bottom: 2px solid Crimson;
+}
+
+h2 {
+  border-bottom: 1.5px solid Crimson;
 }
 
 .off_meeting_show {

@@ -111,7 +111,7 @@
     </div>
     <div class="col-lg-4">
       <div class="organizer-area">
-        <h1>主催者</h1>
+        <h2>主催者</h2>
         <h3><%= link_to @off_meeting.user.nickname, user_path(@off_meeting.user) %>さん</3>
         <div class="organizer-profile-image" style="background-image: url(<%= @off_meeting.user.avatar.url(:medium) %>);">
         </div>
@@ -127,7 +127,7 @@
         </table>
       </div>
       <div class="question-entry-area">
-        <h1>質問する</h1>
+        <h2>質問する</h2>
         <%= form_for [@off_meeting, @question] do |f| %>
           <div class="form-group">
             <div class="field">

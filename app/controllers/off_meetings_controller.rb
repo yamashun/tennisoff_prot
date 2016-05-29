@@ -6,6 +6,7 @@ class OffMeetingsController < ApplicationController
   # GET /off_meetings.json
   def index
     @off_meetings = OffMeeting.all
+    @search = OffMeeting.search(params[:q])
   end
 
   # GET /off_meetings/1
