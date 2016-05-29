@@ -466,3 +466,14 @@ h2 {
 .signin-area input   {
   width: 350px;
 }
+
+
+.box{
+  float: left;
+  padding: 10px;
+  background-color: #eee;
+  width:100px;
+  margin:50px 100px;
+  text-align:center;
+}
+

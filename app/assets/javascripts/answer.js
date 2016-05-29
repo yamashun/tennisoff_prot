@@ -47,9 +47,22 @@ function ready() {
         });
 }
 
-$(document).ready(ready); //非Turbolinks遷移時
-$(document).on('page:load', ready); //Turbolinks遷移時
+function toolchip_test(){
+    $('#def').darkTooltip();
+    $('#def-html').darkTooltip({
+    opacity:1,
+    gravity:'west'
+    });
+}
 
+
+//非Turbolinks遷移時
+$(document).ready(ready);
+$(document).ready(toolchip_test);
+
+//Turbolinks遷移時
+$(document).on('page:load', ready);
+$(document).on('page:load', toolchip_test);
 
 
 
