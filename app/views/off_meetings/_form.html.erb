@@ -28,11 +28,13 @@
     </div>
     <div class="field">
       <%= f.label :level %><br>
-      <%= f.text_field :level, class: "form-control"  %>
+      <%= f.select :level, { '初級' => 1,'中級' => 2,'上級' => 3, 'フリー' => 4}, class: "form-control" %>
+      <!-- <%= f.text_field :level, class: "form-control"  %> -->
     </div>
       <div class="field">
       <%= f.label :num_of_persons %><br>
-      <%= f.text_field :num_of_persons, class: "form-control"  %>
+      <%= f.number_field :num_of_persons, placeholder: '人数', value: 1, max: 20, min: 1, class: "form-control" %>
+      <!-- <%= f.text_field :num_of_persons, class: "form-control"  %> -->
     </div>
     <div class="field">
       <%= f.label :detail %><br>

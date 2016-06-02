@@ -19,6 +19,7 @@ class OffMeetingsController < ApplicationController
 
     @question = Question.new
     @questions = @off_meeting.questions.includes(:answers)
+    @off_meeting.level = @off_meeting.level_convert
 
   end
 
