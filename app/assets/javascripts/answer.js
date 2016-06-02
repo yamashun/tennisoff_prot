@@ -58,11 +58,11 @@ function toolchip_test(){
 
 //非Turbolinks遷移時
 $(document).ready(ready);
-$(document).ready(toolchip_test);
+// $(document).ready(toolchip_test);
 
 //Turbolinks遷移時
 $(document).on('page:load', ready);
-$(document).on('page:load', toolchip_test);
+// $(document).on('page:load', toolchip_test);
 
 
 
