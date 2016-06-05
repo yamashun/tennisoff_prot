@@ -212,6 +212,7 @@ ja:
         detail: "詳細"
         num_of_persons: "人数"
         level: "レベル"
+        address_postal_code: "郵便番号"
       search_form:
         q: "検索フィールド"
       user:

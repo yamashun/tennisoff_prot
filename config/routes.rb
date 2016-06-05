@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
   ##off_meetings/のルーティングより上に書く必要あり
   get 'off_meetings/search' => 'off_meetings#search'
+  get 'off_meetings/get_areas' => 'off_meetings#get_area'
+
   resources :off_meetings do
     resources :entries, only: [:create, :destroy]
     resources :questions, only: [:create, :update] do

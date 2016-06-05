@@ -83,6 +83,11 @@ class OffMeetingsController < ApplicationController
     @off_meetings = @search.result.page(params[:page]).per(5)
   end
 
+  def get_area
+    records = Area.search_area(params[:search_code])
+    render json: records
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_off_meeting
@@ -91,6 +96,6 @@ class OffMeetingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def off_meeting_params
-      params.require(:off_meeting).permit(:day, :address, :level, :detail, :summary, :num_of_persons).merge(user_id: current_user.id)
+      params.require(:off_meeting).permit(:day, :address_postal_code, :address, :level, :detail, :summary, :num_of_persons).merge(user_id: current_user.id)
     end
 end

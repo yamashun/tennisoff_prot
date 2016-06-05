@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160528124940) do
+ActiveRecord::Schema.define(version: 20160605063535) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "answer",      limit: 65535
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 20160528124940) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
+
+  create_table "areas", force: :cascade do |t|
+    t.string  "postal_code",    limit: 255,              null: false
+    t.integer "prefectural_id", limit: 4
+    t.string  "city",           limit: 255, default: ""
+    t.string  "street",         limit: 255, default: ""
+  end
+
+  add_index "areas", ["prefectural_id"], name: "index_areas_on_prefectural_id", using: :btree
 
   create_table "entries", force: :cascade do |t|
     t.integer  "off_meeting_id", limit: 4
@@ -30,14 +39,19 @@ ActiveRecord::Schema.define(version: 20160528124940) do
 
   create_table "off_meetings", force: :cascade do |t|
     t.date     "day"
-    t.string   "address",        limit: 255
-    t.string   "level",          limit: 255
-    t.text     "detail",         limit: 65535
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.string   "summary",        limit: 255
-    t.integer  "num_of_persons", limit: 4
-    t.integer  "user_id",        limit: 4
+    t.string   "address",             limit: 255
+    t.string   "level",               limit: 255
+    t.text     "detail",              limit: 65535
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.string   "summary",             limit: 255
+    t.integer  "num_of_persons",      limit: 4
+    t.integer  "user_id",             limit: 4
+    t.string   "address_postal_code", limit: 255
+  end
+
+  create_table "prefecturals", force: :cascade do |t|
+    t.string "name", limit: 255
   end
 
   create_table "questions", force: :cascade do |t|
