@@ -5,7 +5,7 @@ class OffMeetingsController < ApplicationController
   # GET /off_meetings
   # GET /off_meetings.json
   def index
-    @off_meetings = OffMeeting.all.order("updated_at DESC").page(params[:page]).per(5)
+    @off_meetings = OffMeeting.all.order("updated_at DESC").page(params[:new]).per(5)
     @search = OffMeeting.search(params[:q])
 
     ##フォロー中のユーザーのオフ会を取得
@@ -17,7 +17,7 @@ class OffMeetingsController < ApplicationController
         @following_off_meetings << user.off_meetings
       end
       ##無理やり配列から配列用のページネーションのメソッドを利用　・・・いいやり方がないか？？
-      @following_off_meetings = Kaminari.paginate_array(@following_off_meetings.flatten).page(params[:page]).per(5)
+      @following_off_meetings = Kaminari.paginate_array(@following_off_meetings.flatten).page(params[:following]).per(5)
     end
   end
 
@@ -92,6 +92,7 @@ class OffMeetingsController < ApplicationController
 
   def search
     @search = OffMeeting.search(params[:q])
+    # binding.pry
     @off_meetings = @search.result.page(params[:page]).per(5)
   end
 
