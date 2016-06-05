@@ -11,5 +11,6 @@ class User < ActiveRecord::Base
   has_many :answers
 
   validates :nickname, presence: true, length: { in: 1..15 }
+  validates :area, length: { in: 1..15 }
 
 end
