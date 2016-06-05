@@ -19,6 +19,13 @@
   <div class="row">
     <div class="col-md-9">
     <p id="notice"><%= notice %></p>
+       <% if user_signed_in? && @following_off_meetings.present? %>
+        <div class="top-off-meetings">
+          <h1>お気に入り</h1>
+          <p>フォロー中ユーザーのオフ会を表示されます。</p>
+          <%= render "off_meetings", off_meetings: @following_off_meetings %>
+        </div>
+      <% end %>
       <div class="top-off-meetings">
         <h1>New</h1>
         <p>新しく更新のあったオフ会から順番に表示しています。</p>
