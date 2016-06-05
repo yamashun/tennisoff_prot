@@ -5,6 +5,17 @@
         <div class="row form">
           <div class="col-lg-12">
 
+          <% if @user.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@user.errors.count, "error") %> 以下のメッセージを確認してください。</h2>
+              <ul>
+              <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
             <%= form_for current_user do |f| %>
               <h2>画像アップロード</h2>
               <div class="form-group file">

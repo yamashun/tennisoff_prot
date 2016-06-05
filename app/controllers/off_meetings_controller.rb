@@ -58,9 +58,10 @@ class OffMeetingsController < ApplicationController
   def update
     respond_to do |format|
       if @off_meeting.update(off_meeting_params)
-        format.html { redirect_to @off_meeting, notice: 'Off meeting was successfully updated.' }
+        format.html { redirect_to @off_meeting, notice: 'オフ会情報を更新しました。' }
         format.json { render :show, status: :ok, location: @off_meeting }
       else
+        binding.pry
         format.html { render :edit }
         format.json { render json: @off_meeting.errors, status: :unprocessable_entity }
       end
