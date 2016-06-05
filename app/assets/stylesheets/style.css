@@ -42,7 +42,7 @@ body {
 }
 
 .user-upper-content {
-  height: 350px;
+  height: auto;
   background-color: White;
 }
 
@@ -480,5 +480,9 @@ h2 {
   font-size: 18px
 }
 
+#follow_form {
+  padding: 0 100px 10px 0;
+  text-align: right;
+}
 
 
