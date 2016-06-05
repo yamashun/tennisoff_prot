@@ -2,8 +2,18 @@
   <div class="row">
     <div class="col-lg-8">
       <div class="off_meeting_form" >
-        <p id="notice"><%= notice %></p>
+        <% if flash[:notice] %>
+          <div class="alert alert-success">
+            <%= flash[:notice] %>
+          </div>
+        <% end %>
+        <% if flash[:alert] %>
+          <div class="alert alert-warning">
+            <%= flash[:alert] %>
+          </div>
+        <% end %>
         <div class="off-meeting-title-area">
+
           <h1><%= OffMeeting.model_name.human %></h1>
           <div class="off-meeting-title-area-right">
             <% if user_signed_in? && @off_meeting.user == current_user %>

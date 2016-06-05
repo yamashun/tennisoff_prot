@@ -28,11 +28,9 @@ class OffMeetingsController < ApplicationController
     @entry = Entry.find_by(user_id: current_user.id, off_meeting_id: @off_meeting.id) if user_signed_in?
 
     @entries = @off_meeting.entries
-
     @question = Question.new
     @questions = @off_meeting.questions.includes(:answers)
     @off_meeting.level = @off_meeting.level_convert
-
   end
 
   # GET /off_meetings/new
