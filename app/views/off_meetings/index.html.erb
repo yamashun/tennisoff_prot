@@ -22,7 +22,7 @@
        <% if user_signed_in? && @following_off_meetings.present? %>
         <div class="top-off-meetings">
           <h1>お気に入り</h1>
-          <p>フォロー中ユーザーのオフ会を表示されます。</p>
+          <p>フォロー中ユーザーが開催しているオフ会を表示しています。</p>
           <%= render "off_meetings", off_meetings: @following_off_meetings %>
           <%= paginate @following_off_meetings, param_name: :following %>
         </div>

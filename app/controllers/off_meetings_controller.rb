@@ -16,8 +16,11 @@ class OffMeetingsController < ApplicationController
       following_users.each do |user|
         @following_off_meetings << user.off_meetings
       end
-      ##無理やり配列から配列用のページネーションのメソッドを利用　・・・いいやり方がないか？？
-      @following_off_meetings = Kaminari.paginate_array(@following_off_meetings.flatten).page(params[:following]).per(5)
+      ##無理やり配列にしてから配列用のページネーションのメソッドを利用・・・もっといいやり方ありそう？？
+      @following_off_meetings.flatten!
+      @following_off_meetings.sort_by! {|off_meeting| off_meeting.updated_at}
+      @following_off_meetings.reverse!
+      @following_off_meetings = Kaminari.paginate_array(@following_off_meetings).page(params[:following]).per(5)
     end
   end
 
@@ -83,7 +86,7 @@ class OffMeetingsController < ApplicationController
   def destroy
     @off_meeting.destroy
     respond_to do |format|
-      format.html { redirect_to off_meetings_url, notice: 'Off meeting was successfully destroyed.' }
+      format.html { redirect_to off_meetings_url, notice: 'オフ会を削除しました。' }
       format.json { head :no_content }
     end
   end
