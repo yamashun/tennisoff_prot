@@ -20,7 +20,9 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li><%= link_to "検索", off_meetings_search_path, method: :get %></li>
-          <li><%= link_to '新規開催', new_off_meeting_path %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to '新規開催', new_off_meeting_path %></li>
+          <% end %>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">

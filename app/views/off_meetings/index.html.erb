@@ -26,6 +26,8 @@
           <%= render "off_meetings", off_meetings: @following_off_meetings %>
           <%= paginate @following_off_meetings, param_name: :following %>
         </div>
+        <div class="space">
+        </div>
       <% end %>
       <div class="top-off-meetings">
         <h1>New</h1>
@@ -35,11 +37,7 @@
       </div>
       <div class="space">
       </div>
-      <div class="top-off-meetings">
-        <h1>PickUp</h1>
-        <%= render "off_meetings", off_meetings: @off_meetings %>
-        <%= paginate @off_meetings, param_name: :new %>
-      </div>
+      
     </div>
     <div class="col-md-3">
       <div class="top-search-area">
