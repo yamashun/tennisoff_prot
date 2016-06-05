@@ -10,4 +10,6 @@ class User < ActiveRecord::Base
   has_many :questions
   has_many :answers
 
+  validates :nickname, presence: true, length: { in: 1..15 }
+
 end
