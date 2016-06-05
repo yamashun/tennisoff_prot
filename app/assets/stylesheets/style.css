@@ -467,7 +467,6 @@ h2 {
   width: 350px;
 }
 
-
 .box{
   float: left;
   padding: 10px;
@@ -476,4 +475,10 @@ h2 {
   margin:50px 100px;
   text-align:center;
 }
+
+#notice {
+  font-size: 18px
+}
+
+
 

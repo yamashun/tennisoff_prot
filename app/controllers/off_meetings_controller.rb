@@ -44,7 +44,7 @@ class OffMeetingsController < ApplicationController
 
     respond_to do |format|
       if @off_meeting.save
-        format.html { redirect_to @off_meeting, notice: 'Off meeting was successfully created.' }
+        format.html { redirect_to @off_meeting, notice: 'オフ会を登録しました。' }
         format.json { render :show, status: :created, location: @off_meeting }
       else
         format.html { render :new }

@@ -1,10 +1,9 @@
 <div class="off_meeting_form" >
-<h1>New Off Meeting</h1>
+<h1><%= OffMeeting.model_name.human %></h1>
 <%= form_for(@off_meeting) do |f| %>
   <% if @off_meeting.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@off_meeting.errors.count, "error") %> prohibited this off_meeting from being saved:</h2>
-
+      <h2><%= pluralize(@off_meeting.errors.count, "error") %> 以下のメッセージを確認してください。</h2>
       <ul>
       <% @off_meeting.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -16,15 +15,15 @@
   <div class="form-group">
     <div class="field">
       <%= f.label :summary %><br>
-      <%= f.text_field :summary, class: "form-control" %>
+      <%= f.text_field :summary, class: "form-control",  title: "オフ会のタイトルを入力してくだい。検索されやすいキーワードを含めることをお勧めします。", required: true  %>
     </div>
     <div class="field">
       <%= f.label :day %><br>
-      <%= f.date_select :day, class: "form-control"  %>
+      <%= f.date_select :day, class: "form-control", required: true %>
     </div>
     <div class="field">
-      <%= f.label :address %><br>
-      <%= f.text_field :address, class: "form-control"  %>
+      <%= f.label :address, required: true %><br>
+      <%= f.text_field :address, class: "form-control", required: true %>
     </div>
     <div class="field">
       <%= f.label :level %><br>
@@ -33,7 +32,7 @@
     </div>
       <div class="field">
       <%= f.label :num_of_persons %><br>
-      <%= f.number_field :num_of_persons, placeholder: '人数', value: 1, max: 20, min: 1, class: "form-control" %>
+      <%= f.number_field :num_of_persons, placeholder: '人数', value: 1, max: 20, min: 1, class: "form-control", required: true %>
       <!-- <%= f.text_field :num_of_persons, class: "form-control"  %> -->
     </div>
     <div class="field">

@@ -4,7 +4,7 @@
       <div class="off_meeting_form" >
         <p id="notice"><%= notice %></p>
         <div class="off-meeting-title-area">
-          <h1>Off Meeting</h1>
+          <h1><%= OffMeeting.model_name.human %></h1>
           <div class="off-meeting-title-area-right">
             <% if user_signed_in? && @off_meeting.user == current_user %>
               <%= link_to '編集する', edit_off_meeting_path(@off_meeting) %> |
@@ -16,30 +16,30 @@
           <table class="table table-bordered table-striped off-meeting-table">
             <thead>
               <tr>
-                <th id="column1"><strong>タイトル</strong></td>
+                <th id="column1"><strong><%= OffMeeting.human_attribute_name('summary')%></strong></td>
                 <th id="column2"><%= @off_meeting.summary %></td>
                 <!-- <th colspan="2"><%= @off_meeting.summary %></th> -->
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td id="column1"><strong>開催日時</strong></td>
+                <td id="column1"><strong><%= OffMeeting.human_attribute_name('day') %></strong></td>
                 <td id="column2"><%= @off_meeting.day %></td>
               </tr>
               <tr>
-                <td><strong>開催場所</strong></td>
+                <td><strong><%= OffMeeting.human_attribute_name('address') %></strong></td>
                 <td><%= @off_meeting.address %></td>
               </tr>
               <tr>
-                <td><strong>レベル</strong></td>
+                <td><strong><%= OffMeeting.human_attribute_name('level') %></strong></td>
                 <td><%= @off_meeting.level %></td>
               </tr>
               <tr>
-                <td><strong>詳細情報</strong></td>
+                <td><strong><%= OffMeeting.human_attribute_name('detail') %></strong></td>
                 <td><%= simple_format(@off_meeting.detail) %></td>
               </tr>
               <tr>
-                <td><strong>定員</strong></td>
+                <td><strong><%= OffMeeting.human_attribute_name('num_of_persons') %></strong></td>
                 <td><%= @off_meeting.num_of_persons %></td>
               </tr>
               <tr>

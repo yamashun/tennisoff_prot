@@ -1,0 +1,15 @@
+ja:
+  activerecord: &activerecord
+    models:
+      off_meeting: "テニスオフ会"
+      search_form: "検索フォーム"
+    attributes:
+      off_meeting:
+        summary:  "概要"
+        day: "開催日"
+        address: "開催場所"
+        detail: "詳細"
+        num_of_persons: "人数"
+        level: "レベル"
+      search_form:
+        q: "検索フィールド"

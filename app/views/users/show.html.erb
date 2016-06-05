@@ -15,11 +15,11 @@
             <div class="profile">
               <table class="table profile-bottom-content">
                 <tr>
-                  <td class="column-1"><strong>ニックネーム</strong></td>
+                  <td class="column-1"><strong><%= User.human_attribute_name('nickname') %></strong></td>
                   <td><%= @user.nickname %></td>
                 </tr>
                 <tr>
-                  <td class="column-1"><strong>地域</strong></td>
+                  <td class="column-1"><strong><%= User.human_attribute_name('area') %></strong></td>
                   <td><%= @user.area %></td>
                 </tr>
                 <tr>
@@ -31,7 +31,7 @@
                   <td><%= @entry_off_meetings.length unless @entry_off_meetings.blank? %></td>
                 </tr>
                 <tr>
-                  <td class="column-1"><strong>自己紹介</strong></td>
+                  <td class="column-1"><strong><%= User.human_attribute_name('detail') %></strong></td>
                   <td id="textarea"><%= @user.detail %></td>
                 </tr>
               </table>
