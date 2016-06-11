@@ -222,3 +222,6 @@ ja:
         sex: "性別"
         age: "年齢"
         detail: "自己紹介"
+        password: "パスワード"
+        password_confirmation: "パスワード(再入力)"
+        current_password: "古いパスワード"

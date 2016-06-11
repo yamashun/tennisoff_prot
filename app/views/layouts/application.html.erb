@@ -35,17 +35,17 @@
                   <% if user_signed_in? %>
                     <li><%= link_to 'マイページ', user_path(current_user) %></li>
                     <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+                    <li><%= link_to 'パスワード変更', "/users/#{current_user.id}/edit_password" %></li>
                   <% else %>
                     <li><%= link_to 'ログイン', new_user_session_path %></li>
                     <li><%= link_to 'アカウント作成', new_user_registration_path %></li>
                   <% end %>
-                  <!-- <li class="divider"></li> -->
                 </ul>
               </li>
             </ul>
           </div>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+        </div>
+    </div>
 </nav>
 </div>
 

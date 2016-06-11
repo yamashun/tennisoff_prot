@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get 'off_meetings/get_areas' => 'off_meetings#get_area'
   get 'off_meetings/map/:id' => 'off_meetings#show_map'
 
+  get 'users/:id/edit_password/' => 'users#edit_password'
+  patch 'users/:id/update_password/' => 'users#update_password'
+
   resources :off_meetings do
     resources :entries, only: [:create, :destroy]
     resources :questions, only: [:create, :update] do
