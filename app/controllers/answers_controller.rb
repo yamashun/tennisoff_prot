@@ -1,5 +1,7 @@
 class AnswersController < ApplicationController
 
+  before_action :authenticate_user!
+
   def create
     Answer.create(answer_params)
     redirect_to controller: 'off_meetings', action: 'show', id: params[:off_meeting_id]

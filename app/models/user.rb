@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   has_many :followers, through: :passive_relationships, source: :follower
 
   validates :nickname, presence: true, length: { in: 1..15 }
-  validates :area, length: { in: 1..15 }
+  validates :area, length: { maximum: 15 }
 
 
   # ユーザーをフォローする

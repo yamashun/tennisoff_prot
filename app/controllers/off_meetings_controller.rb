@@ -1,6 +1,6 @@
 class OffMeetingsController < ApplicationController
   before_action :set_off_meeting, only: [:show, :edit, :update, :destroy, :show_map]
-  before_action :authenticate_user!, except: [:show, :index]
+  before_action :authenticate_user!, except: [:show, :index, :search, :show_map]
 
   # GET /off_meetings
   # GET /off_meetings.json

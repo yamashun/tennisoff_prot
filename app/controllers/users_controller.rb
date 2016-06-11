@@ -8,7 +8,6 @@ class UsersController < ApplicationController
     entries.each do |entry|
       @entry_off_meetings << entry.off_meeting
     end
-
   end
 
   def edit
