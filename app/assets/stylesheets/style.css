@@ -508,3 +508,10 @@ h2 {
   color: blue;
 }
 
+#nav-top-position {
+  margin-left: 150px;
+}
+
+#nav-user-position {
+  margin-right: 150px;
+}
