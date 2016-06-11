@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   ##off_meetings/のルーティングより上に書く必要あり
   get 'off_meetings/search' => 'off_meetings#search'
   get 'off_meetings/get_areas' => 'off_meetings#get_area'
+  get 'off_meetings/map/:id' => 'off_meetings#show_map'
 
   resources :off_meetings do
     resources :entries, only: [:create, :destroy]

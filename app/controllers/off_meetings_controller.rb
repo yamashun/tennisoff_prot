@@ -1,5 +1,5 @@
 class OffMeetingsController < ApplicationController
-  before_action :set_off_meeting, only: [:show, :edit, :update, :destroy]
+  before_action :set_off_meeting, only: [:show, :edit, :update, :destroy, :show_map]
   before_action :authenticate_user!, except: [:show, :index]
 
   # GET /off_meetings
@@ -100,6 +100,15 @@ class OffMeetingsController < ApplicationController
   def get_area
     records = Area.search_area(params[:search_code])
     render json: records
+  end
+
+  ##開催場所をgooglemapで表示する
+  def show_map
+    @hash = Gmaps4rails.build_markers(@off_meeting) do |place,marker|
+      marker.lat place.latitude
+      marker.lng place.longitude
+      marker.json({title: place.address})
+    end
   end
 
   private

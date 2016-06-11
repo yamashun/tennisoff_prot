@@ -38,7 +38,7 @@
               </tr>
               <tr>
                 <td><strong><%= OffMeeting.human_attribute_name('address') %></strong></td>
-                <td><%= @off_meeting.address %></td>
+                <td><%= @off_meeting.address %>（<%= link_to "地図を表示", "/off_meetings/map/#{@off_meeting.id}", :target=>["_blank"], id: 'map_link' %>）</td>
               </tr>
               <tr>
                 <td><strong><%= OffMeeting.human_attribute_name('level') %></strong></td>

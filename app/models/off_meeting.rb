@@ -4,6 +4,10 @@ class OffMeeting < ActiveRecord::Base
   has_many :users, through: :entries #オフ会に参加するユーザー
   has_many :questions, ->{ order("updated_at DESC") }
 
+  ##geogodeを使った経緯度の登録
+  geocoded_by :address
+  after_validation :geocode
+
   validates :day, presence: true
   validates :address, presence: true, length: { in: 1..100 }
   validates :detail , length: { in: 1..600 }

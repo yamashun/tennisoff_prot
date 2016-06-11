@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160605081712) do
+ActiveRecord::Schema.define(version: 20160611033306) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "answer",      limit: 65535
@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 20160605081712) do
     t.integer  "num_of_persons",      limit: 4
     t.integer  "user_id",             limit: 4
     t.string   "address_postal_code", limit: 255
+    t.float    "latitude",            limit: 24
+    t.float    "longitude",           limit: 24
   end
 
   create_table "prefecturals", force: :cascade do |t|

@@ -57,3 +57,7 @@ gem 'paperclip'
 gem 'ransack'
 
 gem 'kaminari'
+
+gem "gmaps4rails"
+
+gem "geocoder"
