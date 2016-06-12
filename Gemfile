@@ -61,3 +61,8 @@ gem 'kaminari'
 gem "gmaps4rails"
 
 gem "geocoder"
+
+
+##今はうまく動作しないため使っていない。
+gem 'delayed_job_active_record'
+gem "daemons"

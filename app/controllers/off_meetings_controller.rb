@@ -77,6 +77,7 @@ class OffMeetingsController < ApplicationController
         entries = @off_meeting.entries
         unless entries.empty?
           entries.each do |entry|
+            # NoticeMailer.send_when_update(entry.user).deliver_later
             NoticeMailer.send_when_update(entry.user).deliver
           end
         end

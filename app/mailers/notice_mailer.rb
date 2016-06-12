@@ -6,6 +6,7 @@ class NoticeMailer < ApplicationMailer
   #   en.notice_mailer.send_when_update.subject
   #
   def send_when_update(user)
+    binding.pry
     @user = user
     mail to:      user.email,
          subject: '参加予定のオフ会情報が更新されました。'
