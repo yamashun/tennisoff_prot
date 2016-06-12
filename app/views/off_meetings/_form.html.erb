@@ -44,7 +44,7 @@
     </div>
     <div class="field">
       <%= f.label :address, required: true %><br>
-      <%= f.text_field :address, class: "form-control", id: 'address', required: true %>
+      <%= f.text_field :address, placeholder: '開催場所の住所を入力してください', class: "form-control", id: 'address', required: true %>
     </div>
     <div class="field">
       <%= f.label :level %><br>
@@ -53,8 +53,7 @@
     </div>
       <div class="field">
       <%= f.label :num_of_persons %><br>
-      <%= f.number_field :num_of_persons, placeholder: '人数', value: 1, max: 20, min: 1, class: "form-control", required: true %>
-      <!-- <%= f.text_field :num_of_persons, class: "form-control"  %> -->
+      <%= f.number_field :num_of_persons, placeholder: '主催者を含む参加人数を入力してください', max: 20, min: 2, class: "form-control", required: true %>
     </div>
     <div class="field">
       <%= f.label :detail %><br>
