@@ -63,6 +63,11 @@ gem "gmaps4rails"
 gem "geocoder"
 
 
+group :production, :staging do
+  gem 'rails_12factor'
+end
+
+
 ##今はうまく動作しないため使っていない。
 gem 'delayed_job_active_record'
 gem "daemons"
