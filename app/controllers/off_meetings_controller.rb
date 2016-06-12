@@ -71,13 +71,14 @@ class OffMeetingsController < ApplicationController
   def update
     respond_to do |format|
       if @off_meeting.update(off_meeting_params)
-        # binding.pry
+
         ##オフ会情報が更新されたタイミングで参加予定者にメールを送信する
         entries = []
         entries = @off_meeting.entries
         unless entries.empty?
-          ###試験用にとりあえずは一番最初の人のみ送信する
-          NoticeMailer.send_when_update(entries[0].user).deliver
+          entries.each do |entry|
+            NoticeMailer.send_when_update(entry.user).deliver
+          end
         end
 
         format.html { redirect_to @off_meeting, notice: 'オフ会情報を更新しました。' }
