@@ -3,8 +3,6 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
-# Use mysql as the database for Active Record
-gem 'mysql2', '0.3.18'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -38,6 +36,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  # Use mysql as the database for Active Record
+  gem 'mysql2', '0.3.18'
+  gem 'pry-rails'
 end
 
 group :development do
@@ -50,8 +51,6 @@ end
 
 gem 'devise'
 
-gem 'pry-rails'
-
 gem 'paperclip'
 
 gem 'ransack'
@@ -63,11 +62,12 @@ gem "gmaps4rails"
 gem "geocoder"
 
 
-group :production, :staging do
+group :production do
   gem 'rails_12factor'
+  gem 'pg',             '0.17.1'
 end
 
 
 ##今はうまく動作しないため使っていない。
-gem 'delayed_job_active_record'
-gem "daemons"
+# gem 'delayed_job_active_record'
+# gem "daemons"
