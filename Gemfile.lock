@@ -105,7 +105,6 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (~> 0.3.0)
-    pg (0.17.1)
     pkg-config (1.1.7)
     polyamorous (1.3.0)
       activerecord (>= 3.0)
@@ -210,7 +209,6 @@ DEPENDENCIES
   kaminari
   mysql2 (= 0.3.18)
   paperclip
-  pg (= 0.17.1)
   pry-rails
   rails (= 4.2.6)
   rails_12factor
