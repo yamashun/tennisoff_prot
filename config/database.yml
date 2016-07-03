@@ -9,33 +9,23 @@
 # And be sure to use new-style password hashing:
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 #
-# default: &default
-#   adapter: mysql2
-#   encoding: utf8
-#   pool: 5
-#   username: root
-#   password:
-#   socket: /tmp/mysql.sock
-
-development:
+default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
   username: root
   password:
   socket: /tmp/mysql.sock
+
+development:
+  <<: *default
   database: tennisoff_prot_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  adapter: mysql2
-  encoding: utf8
-  pool: 5
-  username: root
-  password:
-  socket: /tmp/mysql.sock
+  <<: *default
   database: tennisoff_prot_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
@@ -58,9 +48,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  atapter: postgresql
-  encoding: utf8
-  pool: 5
+  <<: *default
   database: tennisoff_prot_production
   username: tennisoff_prot
   password: <%= ENV['TENNISOFF_PROT_DATABASE_PASSWORD'] %>
