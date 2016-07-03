@@ -48,7 +48,9 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  ataptar: postgresql
+  encoding: utf8
+  pool: 5
   database: tennisoff_prot_production
   username: tennisoff_prot
   password: <%= ENV['TENNISOFF_PROT_DATABASE_PASSWORD'] %>
