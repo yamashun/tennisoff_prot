@@ -77,17 +77,17 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  host='shrouded-castle-35932.herokuapp.com'
-  config.action_mailer.default_url_options = { host: host, port: 3000 }
+  host='tennis-off-prot.herokuapp.com'
+  config.action_mailer.default_url_options = { host: host }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :enable_starttls_auto => true,
-    :address => "smtp.gmail.com",
+    :address => "smtp.sendgrid.net",
     :port => 587,
-    :domain => 'smtp.gmail.com',
-    :user_name => ENV['GMAIL_ADDRESS'],
-    :password => ENV['GMAIL_PASSWORD'],
-    :authentication => 'login'
+    :domain => 'heroku.com',
+    :user_name => ENV['SENDGRID_USERNAME'],
+    :password => ENV['SENDGRID_PASSWORD'],
+    :authentication => 'plain'
   }
 end
