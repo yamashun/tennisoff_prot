@@ -16,7 +16,14 @@
         <% end %>
         <div class="row">
           <div class="col-md-5">
-            <div class="profile_image" style="background-image: url(<%= @user.avatar.url(:medium) %>);"></div>
+            <% if  @user.avatar_file_name.blank? %>
+              <div class="profile_image">
+                <img src="/images/default.png" />
+              </div>
+              <!-- <div class="profile_image" style="background-image: url(images/default.png);"></div> -->
+            <% else %>
+              <div class="profile_image" style="background-image: url(<%= @user.avatar.url(:medium) %>);"></div>
+            <% end %>
           </div>
           <div class="col-md-7">
             <div class="profile">

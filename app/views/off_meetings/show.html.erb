@@ -19,7 +19,6 @@
             <% if user_signed_in? && @off_meeting.user == current_user %>
               <%= link_to '編集する', edit_off_meeting_path(@off_meeting) %> |
             <% end %>
-            <%= link_to '戻る', off_meetings_path %>
           </div>
         </div>
         <div class="off_meeting_show">
