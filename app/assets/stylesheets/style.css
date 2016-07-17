@@ -19,6 +19,19 @@ body {
  margin-top: -20px;
 }
 
+.title-text {
+  color: white;
+  text-shadow: 2px 2px 0px #939393, 4px 4px 0px #1c1c1c;
+  font-size: 50px;
+  position: absolute;
+  top: 200px;
+  /*right: 0;*/
+  /*bottom: 0;*/
+  left: 400px;
+  font-family: 'Patua One', cursive;
+  /*margin: 0 auto;*/
+}
+
 .header-image {
   /*float:left;*/
   text-align: center;
