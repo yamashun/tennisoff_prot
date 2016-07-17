@@ -10,7 +10,7 @@
     <% end %>
       <div class="user-upper-content col-md-12">
         <% if user_signed_in? && current_user.id == @user.id %>
-        <h1 >マイプロフィール（<%= link_to '編集', edit_user_path(current_user), id: "profile_link" %>）</h1>
+        <h1 ><i class="fa fa-user"></i>プロフィール（<%= link_to '編集', edit_user_path(current_user), id: "profile_link" %>）</h1>
         <% else %>
           <h1>プロフィール</h1>
         <% end %>

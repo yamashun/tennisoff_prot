@@ -26,8 +26,8 @@
     <% end %>
        <% if user_signed_in? && @following_off_meetings.present? %>
         <div class="top-off-meetings">
-          <h1>お気に入り</h1>
-          <p>フォロー中ユーザーが開催しているオフ会を表示しています。</p>
+          <h1> <i class="fa fa-heart-o"></i>お気に入り</h1>
+          <p>フォロー中ユーザーが開催しているオフ会</p>
           <%= render "off_meetings", off_meetings: @following_off_meetings %>
           <%= paginate @following_off_meetings, param_name: :following %>
         </div>
@@ -35,8 +35,8 @@
         </div>
       <% end %>
       <div class="top-off-meetings">
-        <h1>New</h1>
-        <p>新しく更新のあったオフ会から順番に表示しています。</p>
+        <h1><i class="fa fa-lightbulb-o" ></i>New</h1>
+        <p>新しく更新のあったオフ会</p>
         <%= render "off_meetings", off_meetings: @off_meetings %>
         <%= paginate @off_meetings, param_name: :new %>
       </div>
@@ -45,7 +45,7 @@
     </div>
     <div class="col-md-3">
       <div class="top-search-area">
-      <h2>検索</h2>
+      <h2><i class="fa fa-search"></i>検索</h2>
         <%= search_form_for(@search, url: off_meetings_search_path) do |f| %>
           <div class="top-search-items-area">
             <div class="form-group">
