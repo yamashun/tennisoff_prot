@@ -32,7 +32,6 @@
                 <%= f.text_field :day_lt, class: 'datepicker',placeholder: "例）2016-8-5" %>
               </div>
             </div>
-            
           </div>
           <div class="search-button-area">
             <div id="search-button">
@@ -43,6 +42,7 @@
       </div>
       <div class="search-result-area">
         <%= render "off_meetings", off_meetings: @off_meetings %>
+        <%= paginate @off_meetings %>
       </div>
     </div>
     </div>
