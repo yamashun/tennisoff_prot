@@ -61,6 +61,7 @@ gem "gmaps4rails"
 
 gem "geocoder"
 
+gem 'aws-sdk', '~> 2.3'
 
 group :production do
   gem 'rails_12factor'
