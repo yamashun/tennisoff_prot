@@ -9,19 +9,19 @@ class OffMeetingsController < ApplicationController
     @search = OffMeeting.search(params[:q])
 
     ##フォロー中のユーザーのオフ会を取得
-    # if user_signed_in?
-    #   following_users = current_user.following.includes(:off_meetings)
-    #
-    #   @following_off_meetings = []
-    #   following_users.each do |user|
-    #     @following_off_meetings << user.off_meetings
-    #   end
-    #   ##無理やり配列にしてから配列用のページネーションのメソッドを利用・・・もっといいやり方ありそう？？
-    #   @following_off_meetings.flatten!
-    #   @following_off_meetings.sort_by! {|off_meeting| off_meeting.updated_at}
-    #   @following_off_meetings.reverse!
-    #   @following_off_meetings = Kaminari.paginate_array(@following_off_meetings).page(params[:following]).per(5)
-    # end
+    if user_signed_in?
+      following_users = current_user.following.includes(:off_meetings)
+
+      @following_off_meetings = []
+      following_users.each do |user|
+        @following_off_meetings << user.off_meetings
+      end
+
+      @following_off_meetings.flatten!
+      @following_off_meetings.sort_by! {|off_meeting| off_meeting.updated_at}
+      @following_off_meetings.reverse!
+      @following_off_meetings = Kaminari.paginate_array(@following_off_meetings).page(params[:following]).per(5)
+    end
   end
 
   # GET /off_meetings/1
