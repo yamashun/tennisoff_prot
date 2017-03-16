@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: areas
+#
+#  id             :integer          not null, primary key
+#  postal_code    :string(255)      not null
+#  prefectural_id :integer
+#  city           :string(255)      default("")
+#  street         :string(255)      default("")
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:

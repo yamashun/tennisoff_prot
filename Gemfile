@@ -41,6 +41,9 @@ group :development, :test do
   gem 'pry-rails'
   gem "rspec-rails", "~> 3.1.0"
   gem "factory_girl_rails", "~> 4.4.1"
+  gem 'rails-erd', github: 'ready4god2513/rails-erd', branch: 'rails-4.2-support-fix'
+  gem "railroady"
+  gem 'annotate'
 end
 
 group :development do

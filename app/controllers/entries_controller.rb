@@ -8,7 +8,7 @@ class EntriesController < ApplicationController
     # respond_to do |format|
     #   format.html { redirect_to controller: :off_meetings, action: :show, id: params[:off_meeting_id], notice: 'オフ会への参加申し込みました' }
     # end
-
+  
     flash.keep(:notice)
     flash[:notice] = 'オフ会への参加申し込みました'
     redirect_to controller: :off_meetings, action: :show, id: params[:off_meeting_id]
