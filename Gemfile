@@ -44,6 +44,7 @@ group :development, :test do
   gem 'rails-erd', github: 'ready4god2513/rails-erd', branch: 'rails-4.2-support-fix'
   gem "railroady"
   gem 'annotate'
+  gem "simplecov"
 end
 
 group :development do
